@@ -12,12 +12,14 @@ namespace WoC.Fit.Backend.Data.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int BrandId { get; set; }
-        public virtual Brand Brand { get; set; } // Virtual property for Lazy Loading
+        public virtual Brand Brand { get; set; } 
         public int ProductTypeId { get; set; }
-        public virtual ProductType ProductType { get; set; } // Virtual property for Lazy Loading
+        public virtual ProductType ProductType { get; set; }
         public int MacronutrientId { get; set; }
-        public virtual Macronutrient MainMacronutrient { get; set; } // Virtual property for Lazy Loading
+        public virtual Macronutrient MainMacronutrient { get; set; }
         public string Portion { get; set; }
+        public int PortionTypeId { get; set; }
+        public PortionType PortionType { get; set; }
         public double Calories { get; set; }
         public double Sodium { get; set; }
         public double Protein { get; set; }
