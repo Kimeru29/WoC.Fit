@@ -17,7 +17,7 @@ namespace WoC.Fit.Backend.Data.Models
         public virtual ProductType ProductType { get; set; }
         public int MacronutrientId { get; set; }
         public virtual Macronutrient MainMacronutrient { get; set; }
-        public string Portion { get; set; }
+        public double Portion { get; set; }
         public int PortionTypeId { get; set; }
         public PortionType PortionType { get; set; }
         public double Calories { get; set; }
