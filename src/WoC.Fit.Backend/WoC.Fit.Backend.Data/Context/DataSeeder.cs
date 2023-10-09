@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using WoC.Fit.Backend.Data.Models;
 
 public static class DataSeeder
@@ -34,8 +35,8 @@ public static class DataSeeder
         var macronutrients = new List<Macronutrient>
         {
             new Macronutrient { Id = 1, Name = "Proteina" },
-            new Macronutrient { Id = 1, Name = "Grasas" },
-            new Macronutrient { Id = 1, Name = "Carbohidratos" }
+            new Macronutrient { Id = 2, Name = "Grasas" },
+            new Macronutrient { Id = 3, Name = "Carbohidratos" }
         };
 
 
@@ -319,6 +320,11 @@ public static class DataSeeder
                 PortionTypeId = 1,
             }
         };
+
+        for (int i = 0; i < products.Count; i++)
+        {
+            products[i].Id = i + 1;
+        }
 
         modelBuilder.Entity<Brand>().HasData(brands);
         modelBuilder.Entity<ProductType>().HasData(productTypes);

@@ -12,9 +12,14 @@ public class NutriContext : DbContext
     public DbSet<Macronutrient> Macronutrients { get; set; }
     public DbSet<Product> Products { get; set; }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.EnableSensitiveDataLogging();
+    }
+
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {        
-
         modelBuilder.Entity<Product>()
             .HasOne(p => p.Brand)
             .WithMany(b => b.Products)
@@ -29,5 +34,8 @@ public class NutriContext : DbContext
             .HasOne(p => p.MainMacronutrient)
             .WithMany(m => m.Products)
             .HasForeignKey(p => p.MacronutrientId);
+
+
+        DataSeeder.Seed(modelBuilder);        
     }
 }
