@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,5 +27,4 @@ namespace WoC.Fit.Backend.Data.Models
         public double Carbohydrates { get; set; }
         public double Fats { get; set; }
     }
-
 }

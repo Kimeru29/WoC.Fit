@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Mapster;
+using Microsoft.AspNetCore.Mvc;
+using WoC.Fit.Backend.Api.ViewModels;
 using WoC.Fit.Backend.Data.Models;
 
 [Route("api/[controller]")]
@@ -16,8 +18,8 @@ public class ProductsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllProducts()
     {
-        var products = await _productService.GetAllProductsAsync();
-        return Ok(products);
+        var products = await _productService.GetAllProductsAsync();        
+        return Ok((products.Adapt<List<ProductVM>>()));
     }
 
     // GET: api/Products/5

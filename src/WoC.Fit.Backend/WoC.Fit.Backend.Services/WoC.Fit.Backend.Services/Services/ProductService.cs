@@ -12,9 +12,9 @@ public class ProductService : IProductService
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()
     {
-        return await _productRepository.GetAllAsync();
+        return await _productRepository.GetProductsWithIncludes();
     }
-
+    
     public async Task<Product> GetProductByIdAsync(int id)
     {
         return await _productRepository.GetByIdAsync(id);

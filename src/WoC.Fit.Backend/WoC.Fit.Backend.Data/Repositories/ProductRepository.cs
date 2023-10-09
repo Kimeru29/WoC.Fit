@@ -1,4 +1,5 @@
-﻿using WoC.Fit.Backend.Data.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using WoC.Fit.Backend.Data.Models;
 using WoC.Fit.Backend.Data.Repositories.Interfaces;
 
 namespace WoC.Fit.Backend.Data.Repositories
@@ -13,12 +14,19 @@ namespace WoC.Fit.Backend.Data.Repositories
             _context = context;            
         }
 
-        // Implement any specific methods related to Product here.
-        // Example:
-        // public IEnumerable<Product> GetProductsByBrand(string brandName)
-        // {
-        //     return _context.Products.Where(p => p.Brand.Name == brandName).ToList();
-        // }
+        public async Task<IEnumerable<Product>> GetProductsWithIncludes()
+        {
+            var products = await _context.Products
+                        .Include(p => p.Brand)
+                        .Include(p => p.ProductType)
+                        .Include(p => p.MainMacronutrient)
+                        .Include(p => p.PortionType)
+                        .ToListAsync();
+
+            return products;
+
+        }
+
     }
 
 }
