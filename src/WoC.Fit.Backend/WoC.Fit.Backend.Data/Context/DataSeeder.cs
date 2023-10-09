@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.IO;
-using System.Net;
-using System.Text.RegularExpressions;
 using WoC.Fit.Backend.Data.Models;
 
 public static class DataSeeder
